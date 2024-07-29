@@ -1,4 +1,7 @@
-<p align="center">
+
+# Nginx + Proxy GUI + WAF
+
+<!-- <p align="center">
 	<img src="https://nginxproxymanager.com/github.png">
 	<br><br>
 	<img src="https://img.shields.io/badge/version-2.11.2-green.svg?style=for-the-badge">
@@ -8,24 +11,19 @@
 	<a href="https://hub.docker.com/repository/docker/jc21/nginx-proxy-manager">
 		<img src="https://img.shields.io/docker/pulls/jc21/nginx-proxy-manager.svg?style=for-the-badge">
 	</a>
-</p>
+</p> -->
 
-This project comes as a pre-built docker image that enables you to easily forward to your websites
-running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.
+Implement proxy and web firewall functions with configured components
+Apply web firewalls easily
 
-- [Quick Setup](#quick-setup)
-- [Full Setup](https://nginxproxymanager.com/setup/)
-- [Screenshots](https://nginxproxymanager.com/screenshots/)
+- [NginxProxy 2.11.2](https://github.com/NginxProxyManager/nginx-proxy-manager)
+- [Modsecurity 3.0.12](https://github.com/owasp-modsecurity/ModSecurity)
+- [CRS 4.3.0](https://github.com/coreruleset/coreruleset)
+
 
 ## Project Goal
 
-I created this project to fill a personal need to provide users with an easy way to accomplish reverse
-proxying hosts with SSL termination and it had to be so easy that a monkey could do it. This goal hasn't changed.
-While there might be advanced options they are optional and the project should be as simple as possible
-so that the barrier for entry here is low.
-
-<a href="https://www.buymeacoffee.com/jc21" target="_blank"><img src="http://public.jc21.com/github/by-me-a-coffee.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
-
+Easily configure SSL certificates and web screens with high-performance proxy environments
 
 ## Features
 
@@ -35,18 +33,7 @@ so that the barrier for entry here is low.
 - Access Lists and basic HTTP Authentication for your hosts
 - Advanced Nginx configuration available for super users
 - User management, permissions and audit log
-
-
-## Hosting your home network
-
-I won't go in to too much detail here but here are the basics for someone new to this self-hosted world.
-
-1. Your home router will have a Port Forwarding section somewhere. Log in and find it
-2. Add port forwarding for port 80 and 443 to the server hosting this project
-3. Configure your domain name details to point to your home, either with a static ip or a service like DuckDNS or [Amazon Route53](https://github.com/jc21/route53-ddns)
-4. Use the Nginx Proxy Manager as your gateway to forward to your other web based services
-
-## Quick Setup
+- Setting the easiest web firewall policy
 
 1. Install Docker and Docker-Compose
 

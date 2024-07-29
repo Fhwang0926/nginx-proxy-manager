@@ -10,6 +10,7 @@
                 <li role="presentation" class="nav-item"><a href="#details" aria-controls="tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fe fe-zap"></i> <%- i18n('all-hosts', 'details') %></a></li>
                 <li role="presentation" class="nav-item"><a href="#ssl-options" aria-controls="tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fe fe-shield"></i> <%- i18n('str', 'ssl') %></a></li>
                 <li role="presentation" class="nav-item"><a href="#advanced" aria-controls="tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fe fe-settings"></i> <%- i18n('all-hosts', 'advanced') %></a></li>
+                <li role="presentation" class="nav-item"><a href="#waf-options" aria-controls="tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fe fe-crosshair"></i> <%- i18n('waf', 'title') %></a></li>
             </ul>
             <div class="tab-content">
                 <!-- Details -->
@@ -243,6 +244,104 @@
                         </div>
                     </div>
                 </div>
+
+
+                <!-- WAF -->
+                <div role="tabpanel" class="tab-pane" id="waf-options">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="xss_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">XSS 공격 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="sql_injection_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">SQL 인젝션 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="file_inclusion_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">파일 포함 공격 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="command_injection_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">명령어 삽입 공격 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="session_fixation_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">세션 고정 공격 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="csrf_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">크로스 사이트 요청 위조 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="javascript_interpretation_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">자바스크립트 해석 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="file_upload_restrictions" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">파일 업로드 제한</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="ddos_protection" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">디도스 공격 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="brute_force_attack_prevention" value="1">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description">브루트 포스 공격 방어</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+
             </div>
         </form>
     </div>

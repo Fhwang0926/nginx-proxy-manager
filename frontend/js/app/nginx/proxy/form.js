@@ -9,7 +9,7 @@ const CustomLocation         = require('./location');
 const Helpers                = require('../../../lib/helpers');
 const i18n                   = require('../../i18n');
 const dns_providers          = require('../../../../../global/certbot-dns-plugins');
-
+const policyList             = ['waf_bot', 'waf_protocol', 'waf_application', 'waf_leak', 'waf_webshell', 'waf_blocking', 'waf_correlation']
 
 require('jquery-serializejson');
 require('selectize');
@@ -43,7 +43,10 @@ module.exports = Mn.View.extend({
         dns_provider_credentials: 'textarea[name="meta[dns_provider_credentials]"]',
         propagation_seconds:      'input[name="meta[propagation_seconds]"]',
         forward_scheme:           'select[name="forward_scheme"]',
-        letsencrypt:              '.letsencrypt'
+        letsencrypt:              '.letsencrypt',
+        help:        '.help',
+        allow_waf: 'input[name="allow_waf"]',
+        waf_policy_radios: 'input[name^="waf_"]',
     },
 
     regions: {
@@ -51,6 +54,37 @@ module.exports = Mn.View.extend({
     },
 
     events: {
+        'click @ui.help': function(e) {
+            let text = $(e.currentTarget).data('title').split('\n').join("<br>");
+
+            let tmp = '' + 
+            '<div class="help-popup">' +
+            '<div class="help-popup-content">' +
+                '<button class="btn btn-sm btn-secondary close-popup"> <i class="fe fe-x"></i> </button>' +
+                '<h5 class="mt-2">' + i18n('waf', 'help-title') + '</h5>' +
+                '<p>' + text + '</p>' +
+            '</div>' +
+            '</div>'
+            
+            let popup = $(tmp);
+            
+            $('body').append(popup);
+            
+            popup.find('.close-popup').on('click', function() {
+                popup.remove();
+            });
+        },
+        'change @ui.allow_waf': function () {
+            const isEnabled = this.ui.allow_waf.prop('checked');
+            this.ui.waf_policy_radios.prop('disabled', !isEnabled);
+            this.ui.waf_policy_radios.closest('.btn-group').toggleClass('disabled', !isEnabled);
+        },
+        'change @ui.waf_policy_radios': function (e) {
+            const $target = $(e.currentTarget);
+            const policyName = $target.attr('name');
+            const value = $target.val();
+            console.log(`Policy ${policyName} changed to ${value}`);
+        },
         'change @ui.certificate_select': function () {
             let id = this.ui.certificate_select.val();
             if (id === 'new') {
@@ -147,6 +181,13 @@ module.exports = Mn.View.extend({
 
             let view = this;
             let data = this.ui.form.serializeJSON();
+
+            // WAF 정책 데이터 추가
+            // data.allow_waf = !!data.allow_waf;
+            data.allow_waf = this.ui.allow_waf.prop('checked');
+            policyList.forEach(policy => {
+                data[policy] = parseInt(this.ui.form.find(`input[name="${policy}"]:checked`).val());
+            });
 
             // Add locations
             data.locations = [];
@@ -266,6 +307,18 @@ module.exports = Mn.View.extend({
 
         this.ui.ssl_forced.trigger('change');
         this.ui.hsts_enabled.trigger('change');
+        this.ui.allow_waf.trigger('change');
+
+         // WAF 설정 초기화
+        this.ui.allow_waf.prop('checked', this.model.get('allow_waf'));
+        this.ui.allow_waf.trigger('change');
+
+        policyList.forEach(policy => {
+            const value = this.model.get(policy);
+            if (value !== undefined) {
+                this.ui.form.find(`input[name="${policy}"][value="${value}"]`).prop('checked', true);
+            }
+        });
 
         // Domain names
         this.ui.domain_names.selectize({

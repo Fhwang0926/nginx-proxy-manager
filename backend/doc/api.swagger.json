@@ -1228,6 +1228,38 @@
 					},
 					"ipv6": {
 						"type": "boolean"
+					},
+					"allow_waf": {
+						"type": "boolean",
+						"default": false
+					},
+					"waf_bot": {
+						"type": "integer",
+						"default": 0
+					},
+					"waf_protocol": {
+						"type": "integer",
+						"default": 0
+					},
+					"waf_application": {
+						"type": "integer",
+						"default": 0
+					},
+					"waf_leak": {
+						"type": "integer",
+						"default": 0
+					},
+					"waf_webshell": {
+						"type": "integer",
+						"default": 0
+					},
+					"waf_blocking": {
+						"type": "integer",
+						"default": 0
+					},
+					"waf_correlation": {
+						"type": "integer",
+						"default": 0
 					}
 				}
 			},

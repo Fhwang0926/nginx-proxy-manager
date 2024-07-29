@@ -50,6 +50,9 @@
     "block_exploits": {
       "$ref": "../definitions.json#/definitions/block_exploits"
     },
+    "allow_waf": {
+      "$ref": "../definitions.json#/definitions/allow_waf"
+    },
     "advanced_config": {
       "type": "string"
     },
@@ -103,6 +106,9 @@
     "block_exploits": {
       "$ref": "#/definitions/block_exploits"
     },
+    "allow_waf": {
+        "$ref": "#/definitions/allow_waf"
+      },
     "advanced_config": {
       "$ref": "#/definitions/advanced_config"
     },
@@ -184,6 +190,9 @@
           "block_exploits": {
             "$ref": "#/definitions/block_exploits"
           },
+          "allow_waf": {
+            "$ref": "#/definitions/allow_waf"
+          },
           "advanced_config": {
             "$ref": "#/definitions/advanced_config"
           },
@@ -244,6 +253,9 @@
           },
           "block_exploits": {
             "$ref": "#/definitions/block_exploits"
+          },
+          "allow_waf": {
+            "$ref": "#/definitions/allow_waf"
           },
           "advanced_config": {
             "$ref": "#/definitions/advanced_config"

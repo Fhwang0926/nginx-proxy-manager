@@ -129,6 +129,7 @@ module.exports = Mn.View.extend({
 
             // Manipulate
             data.block_exploits     = !!data.block_exploits;
+            data.allow_waf          = !!data.allow_waf;
             data.preserve_path      = !!data.preserve_path;
             data.http2_support      = !!data.http2_support;
             data.hsts_enabled       = !!data.hsts_enabled;
@@ -229,6 +230,7 @@ module.exports = Mn.View.extend({
     },
 
     onRender: function () {
+        $('[data-toggle="tooltip"]').tooltip();
         let view = this;
 
         // Domain names

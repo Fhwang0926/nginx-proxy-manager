@@ -11,6 +11,7 @@
                 <li role="presentation" class="nav-item"><a href="#locations" aria-controls="tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fe fe-layers"></i> <%- i18n('all-hosts', 'locations') %></a></li>
                 <li role="presentation" class="nav-item"><a href="#ssl-options" aria-controls="tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fe fe-shield"></i> <%- i18n('str', 'ssl') %></a></li>
                 <li role="presentation" class="nav-item"><a href="#advanced" aria-controls="tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fe fe-settings"></i> <%- i18n('all-hosts', 'advanced') %></a></li>
+                <li role="presentation" class="nav-item"><a href="#waf-options" aria-controls="tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fe fe-crosshair"></i> <%- i18n('waf', 'title') %></a></li>
             </ul>
             <div class="tab-content">
 
@@ -271,6 +272,185 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- waf -->
+                <div role="tabpanel" class="tab-pane" id="waf-options">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <label class="form-label">
+                                <%- i18n('waf', 'policy') %> <%- i18n('waf', 'status') %>
+                            </label>
+                            <div class="form-group">
+                                <label class="custom-switch">
+                                    <input type="checkbox" class="custom-switch-input" name="allow_waf" value="<%- allow_waf %>">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="custom-switch-description"><%- i18n('waf', 'desc') %></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="margin: 10px 0px">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 text-center">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 48%;">
+                                    <%- i18n('waf', 'policy') %>
+                                </label>
+                                <label class="custom-switch" style="display: inline-block; width: 48%;">
+                                    <%- i18n('waf', 'action_off') %>
+                                    /
+                                    <%- i18n('waf', 'action_detect') %>
+                                    /
+                                    <%- i18n('waf', 'action_block') %>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 58%;">
+                                    Request - <%- i18n('waf', 'bot') %>
+                                    <a href="#" class="btn btn-sm help" data-toggle="tooltip" data-title="<%- i18n('waf', 'help-bot') %>"><i class="fe fe-help-circle"></i></a>
+                                </label>
+                                <div class="btn-group" style="display: contents; text-align: right;" role="group" aria-label="Protocol options">
+                                    <input type="radio" class="btn-check" name="waf_bot" id="r-0-0" value="0" autocomplete="off" checked <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-primary" for="r-0-0"><i class="fe fe-shield-off"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_bot" id="r-0-1" value="1" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-warning" for="r-0-1"><i class="fe fe-search"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_bot" id="r-0-2" value="2" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-danger" for="r-0-2"><i class="fe fe-x-circle"></i></label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 58%;">
+                                    Request - <%- i18n('waf', 'protocol') %>
+                                    <a href="#" class="btn btn-sm help" data-toggle="tooltip" data-title="<%- i18n('waf', 'help-protocol') %>"><i class="fe fe-help-circle"></i></a>
+                                </label>
+                                <div class="btn-group" style="display: contents; text-align: right;" role="group" aria-label="Protocol options">
+                                    <input type="radio" class="btn-check" name="waf_protocol" id="r-1-0" value="0" autocomplete="off" checked <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-primary" for="r-1-0"><i class="fe fe-shield-off"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_protocol" id="r-1-1" value="1" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-warning" for="r-1-1"><i class="fe fe-search"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_protocol" id="r-1-2" value="2" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-danger" for="r-1-2"><i class="fe fe-x-circle"></i></label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 58%;">
+                                    Request - <%- i18n('waf', 'application') %>
+                                    <a href="#" class="btn btn-sm help" data-toggle="tooltip" data-title="<%- i18n('waf', 'help-application') %>"><i class="fe fe-help-circle"></i></a>
+                                </label>
+                                <div class="btn-group" style="display: contents; text-align: right;" role="group" aria-label="Protocol options">
+                                    <input type="radio" class="btn-check" name="waf_application" id="r-2-0" value="0" autocomplete="off" checked <%- 1 ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-primary" for="r-2-0"><i class="fe fe-shield-off"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_application" id="r-2-1" value="1" autocomplete="off" <%- 1 ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-warning" for="r-2-1"><i class="fe fe-search"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_application" id="r-2-2" value="2" autocomplete="off" <%- 1 ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-danger" for="r-2-2"><i class="fe fe-x-circle"></i></label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 58%;">
+                                    Response - <%- i18n('waf', 'data-leak') %>
+                                    <a href="#" class="btn btn-sm help" data-toggle="tooltip" data-title="<%- i18n('waf', 'help-leak') %>"><i class="fe fe-help-circle"></i></a>
+                                </label>
+                                <div class="btn-group" style="display: contents; text-align: right;" role="group" aria-label="Protocol options">
+                                    <input type="radio" class="btn-check" name="waf_leak" id="r-3-0" value="0" autocomplete="off" checked <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-primary" for="r-3-0"><i class="fe fe-shield-off"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_leak" id="r-3-1" value="1" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-warning" for="r-3-1"><i class="fe fe-search"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_leak" id="r-3-2" value="2" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-danger" for="r-3-2"><i class="fe fe-x-circle"></i></label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 58%;">
+                                    Response - <%- i18n('waf', 'webshell') %>
+                                    <a href="#" class="btn btn-sm help" data-toggle="tooltip" data-title="<%- i18n('waf', 'help-webshell') %>"><i class="fe fe-help-circle"></i></a>
+                                </label>
+                                <div class="btn-group" style="display: contents; text-align: right;" role="group" aria-label="Protocol options">
+                                    <input type="radio" class="btn-check" name="waf_webshell" id="r-4-0" value="0" autocomplete="off" checked <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-primary" for="r-4-0"><i class="fe fe-shield-off"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_webshell" id="r-4-1" value="1" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-warning" for="r-4-1"><i class="fe fe-search"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_webshell" id="r-4-2" value="2" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-danger" for="r-4-2"><i class="fe fe-x-circle"></i></label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 58%;">
+                                    Common - <%- i18n('waf', 'anomaly') %>
+
+                                    <a href="#" class="btn btn-sm help" data-toggle="tooltip" data-title="<%- i18n('waf', 'help-blocking') %>"><i class="fe fe-help-circle"></i></a>
+                                </label>
+                                <div class="btn-group" style="display: contents; text-align: right;" role="group" aria-label="Protocol options">
+                                    <input type="radio" class="btn-check" name="waf_blocking" id="r-5-0" value="0" autocomplete="off" checked <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-primary" for="r-5-0"><i class="fe fe-shield-off"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_blocking" id="r-5-1" value="1" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-warning" for="r-5-1"><i class="fe fe-search"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_blocking" id="r-5-2" value="2" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-danger" for="r-5-2"><i class="fe fe-x-circle"></i></label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="custom-switch" style="display: inline-block; width: 58%;">
+                                    Common - <%- i18n('waf', 'correlation') %>
+                                    <a href="#" class="btn btn-sm help" data-toggle="tooltip" data-title="<%- i18n('waf', 'help-correlation') %>"><i class="fe fe-help-circle"></i></a>
+                                </label>
+                                <div class="btn-group" style="display: contents; text-align: right;" role="group" aria-label="Protocol options">
+                                    <input type="radio" class="btn-check" name="waf_correlation" id="r-6-0" value="0" autocomplete="off" checked <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-primary" for="r-6-0"><i class="fe fe-shield-off"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_correlation" id="r-6-1" value="1" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-warning" for="r-6-1"><i class="fe fe-search"></i></label>
+                        
+                                    <input type="radio" class="btn-check" name="waf_correlation" id="r-6-2" value="2" autocomplete="off" <%- allow_waf ? '' : ' disabled' %>>
+                                    <label class="btn btn-outline-danger" for="r-6-2"><i class="fe fe-x-circle"></i></label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -279,3 +459,100 @@
         <button type="button" class="btn btn-teal save"><%- i18n('str', 'save') %></button>
     </div>
 </div>
+<style scoped>
+    .btn-group {
+        display: flex;
+        margin-left: 15px;
+    }
+    
+    .btn-check {
+        display: none;
+    }
+    
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    
+    .help {
+        display: inline-block !important;
+        margin: 0px !important;
+    }
+    
+    .btn-outline-primary {
+        border: 2px solid #007bff;
+        color: #007bff;
+        background-color: transparent;
+    }
+    
+    .btn-outline-primary:hover {
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+    
+    .btn-check:checked + .btn-outline-primary {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+
+    .btn-check:checked + .btn-outline-secondary {
+        background-color: #6c757d;
+        color: white;
+        border-color: #6c757d;
+    }
+
+    .btn-check:checked + .btn-outline-warning {
+        background-color: #ffc107;
+        color: white;
+        border-color: #ffc107;
+    }
+
+    .btn-check:checked + .btn-outline-danger {
+        background-color: #dc3545;
+        color: white;
+        border-color: #dc3545;
+    }
+
+    .btn-check:checked + .btn-check:disabled {
+        opacity: 0.5;
+    }
+
+    .help-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1060; /* Bootstrap 모달의 z-index보다 높게 설정 */
+    }
+
+    .help-popup-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 400px;
+        width: 90%;
+    }
+
+    .help-popup h5 {
+        margin-top: 0;
+    }
+
+    .help-popup .close-popup {
+        border-radius: 20%;
+        border: none;
+        float: right;
+    }
+    
+    
+</style>

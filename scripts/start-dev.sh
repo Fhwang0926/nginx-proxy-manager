@@ -26,3 +26,7 @@ if hash docker-compose 2>/dev/null; then
 else
 	echo -e "${RED}❯ docker-compose command is not available${RESET}"
 fi
+
+
+
+docker logs -f npm_core

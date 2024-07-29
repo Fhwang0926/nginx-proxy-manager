@@ -12,7 +12,7 @@ ENV SUPPRESS_NO_CONFIG_WARNING=1 \
 
 RUN echo "fs.file-max = 65535" > /etc/sysctl.conf \
 	&& apt-get update \
-	&& apt-get install -y jq python3-pip logrotate \
+	&& apt-get install -y jq python3-pip logrotate libmodsecurity3 \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -28,6 +28,16 @@ RUN chmod 644 /etc/logrotate.d/nginx-proxy-manager
 # s6 overlay
 COPY scripts/install-s6 /tmp/install-s6
 RUN /tmp/install-s6 "${TARGETPLATFORM}" && rm -f /tmp/install-s6
+
+# nginx overlay
+# RUN wget http://nginx.org/download/nginx-1.24.0.tar.gz
+# RUN tar -zxvf nginx-1.24.0.tar.gz
+# RUN cd nginx-1.24.0
+# RUN git clone https://github.com/leev/ngx_http_geoip2_module.git
+RUN mkdir -p /etc/nginx/modules
+COPY modsecurity /etc/nginx/modules
+
+COPY scripts/install-s6 /tmp/install-s6
 
 EXPOSE 80 81 443
 ENTRYPOINT [ "/init" ]

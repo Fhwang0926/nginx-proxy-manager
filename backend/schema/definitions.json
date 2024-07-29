@@ -231,6 +231,46 @@
       "example": true,
       "type": "boolean"
     },
+    "allow_waf": {
+      "description": "Should toogle Web Application Firewall",
+      "example": true,
+      "type": "boolean"
+    },
+    "waf_bot": {
+      "description": "Web Application Firewall bot Policy status",
+      "example": 0,
+      "type": "integer"
+    },
+    "waf_protocol": {
+      "description": "Web Application Firewall protocol Policy status",
+      "example": 0,
+      "type": "integer"
+    },
+    "waf_application": {
+      "description": "Web Application Firewall application Policy status",
+      "example": 0,
+      "type": "integer"
+    },
+    "waf_leak": {
+      "description": "Web Application Firewall leak Policy status",
+      "example": 0,
+      "type": "integer"
+    },
+    "waf_webshell": {
+      "description": "Web Application Firewall webshell Policy status",
+      "example": 0,
+      "type": "integer"
+    },
+    "waf_blocking": {
+      "description": "Web Application Firewall blocking Policy status",
+      "example": 0,
+      "type": "integer"
+    },
+    "waf_correlation": {
+      "description": "Web Application Firewall correlation Policy status",
+      "example": 0,
+      "type": "integer"
+    },
     "caching_enabled": {
       "description": "Should we cache assets",
       "example": true,

@@ -50,6 +50,30 @@
     "block_exploits": {
       "$ref": "../definitions.json#/definitions/block_exploits"
     },
+    "allow_waf": {
+      "$ref": "../definitions.json#/definitions/allow_waf"
+    },
+    "waf_bot": {
+      "$ref": "../definitions.json#/definitions/waf_bot"
+    },
+    "waf_protocol": {
+      "$ref": "../definitions.json#/definitions/waf_protocol"
+    },
+    "waf_application": {
+      "$ref": "../definitions.json#/definitions/waf_application"
+    },
+    "waf_leak": {
+      "$ref": "../definitions.json#/definitions/waf_leak"
+    },
+    "waf_webshell": {
+      "$ref": "../definitions.json#/definitions/waf_webshell"
+    },
+    "waf_blocking": {
+      "$ref": "../definitions.json#/definitions/waf_blocking"
+    },
+    "waf_correlation": {
+      "$ref": "../definitions.json#/definitions/waf_correlation"
+    },
     "caching_enabled": {
       "$ref": "../definitions.json#/definitions/caching_enabled"
     },
@@ -149,6 +173,30 @@
     "block_exploits": {
       "$ref": "#/definitions/block_exploits"
     },
+    "allow_waf": {
+      "$ref": "#/definitions/allow_waf"
+    },
+    "waf_bot": {
+      "$ref": "#/definitions/waf_bot"
+    },
+    "waf_protocol": {
+      "$ref": "#/definitions/waf_protocol"
+    },
+    "waf_application": {
+      "$ref": "#/definitions/waf_application"
+    },
+    "waf_leak": {
+      "$ref": "#/definitions/waf_leak"
+    },
+    "waf_webshell": {
+      "$ref": "#/definitions/waf_webshell"
+    },
+    "waf_blocking": {
+      "$ref": "#/definitions/waf_blocking"
+    },
+    "waf_correlation": {
+      "$ref": "#/definitions/waf_correlation"
+    },
     "caching_enabled": {
       "$ref": "#/definitions/caching_enabled"
     },
@@ -239,6 +287,30 @@
           "block_exploits": {
             "$ref": "#/definitions/block_exploits"
           },
+          "allow_waf": {
+            "$ref": "#/definitions/allow_waf"
+          },
+          "waf_bot": {
+            "$ref": "#/definitions/waf_bot"
+          },
+          "waf_protocol": {
+            "$ref": "#/definitions/waf_protocol"
+          },
+          "waf_application": {
+            "$ref": "#/definitions/waf_application"
+          },
+          "waf_leak": {
+            "$ref": "#/definitions/waf_leak"
+          },
+          "waf_webshell": {
+            "$ref": "#/definitions/waf_webshell"
+          },
+          "waf_blocking": {
+            "$ref": "#/definitions/waf_blocking"
+          },
+          "waf_correlation": {
+            "$ref": "#/definitions/waf_correlation"
+          },
           "caching_enabled": {
             "$ref": "#/definitions/caching_enabled"
           },
@@ -311,6 +383,30 @@
           },
           "block_exploits": {
             "$ref": "#/definitions/block_exploits"
+          },
+          "allow_waf": {
+            "$ref": "#/definitions/allow_waf"
+          },
+          "waf_bot": {
+            "$ref": "#/definitions/waf_bot"
+          },
+          "waf_protocol": {
+            "$ref": "#/definitions/waf_protocol"
+          },
+          "waf_application": {
+            "$ref": "#/definitions/waf_application"
+          },
+          "waf_leak": {
+            "$ref": "#/definitions/waf_leak"
+          },
+          "waf_webshell": {
+            "$ref": "#/definitions/waf_webshell"
+          },
+          "waf_blocking": {
+            "$ref": "#/definitions/waf_blocking"
+          },
+          "waf_correlation": {
+            "$ref": "#/definitions/waf_correlation"
           },
           "caching_enabled": {
             "$ref": "#/definitions/caching_enabled"

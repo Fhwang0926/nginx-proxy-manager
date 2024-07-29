@@ -1,6 +1,9 @@
-# WARNING: This is a DEVELOPMENT docker-compose file, it should not be used for production.
-services:
+version: '3.3'  # Docker Compose 파일의 버전을 명시합니다.
 
+# DEVELOPMENT 환경을 위한 Docker Compose 파일입니다. 
+# 프로덕션 환경에서는 사용하지 마십시오.
+
+services:
   npm:
     image: nginxproxymanager:dev
     container_name: npm_core
@@ -56,12 +59,12 @@ services:
 
 volumes:
   npm_data:
-    name: npm_core_data
+    # name: npm_core_data
   le_data:
-    name: npm_le_data
+    # name: npm_le_data
   db_data:
-    name: npm_db_data
+    # name: npm_db_data
 
 networks:
   nginx_proxy_manager:
-    name: npm_network
+    # name: npm_network
